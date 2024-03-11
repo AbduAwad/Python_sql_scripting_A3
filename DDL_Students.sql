@@ -13,8 +13,8 @@ INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES
 ('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),
 ('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02');
 
--- # Select all the records from the student table in the database.
-SELECT * FROM students;
+-- -- # Select all the records from the student table in the database.
+-- SELECT * FROM students;
 
--- # Delete all records from the student table in the database.
-DELETE FROM students;
+-- -- # Delete all records from the student table in the database.
+-- DELETE FROM students;

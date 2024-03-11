@@ -1,7 +1,7 @@
 import psycopg # import the psycopg module
 import csv  # import the csv module
 
-# Retrieves and displays all the records from the student table in the database.
+# READ FUNCTION: Retrieves and displays all the records from the student table in the database.
 def getAllStudents():
     with psycopg.connect("dbname=Assignment_3_DB user=postgres password=postgres") as db: # connect to the database
         with db.cursor() as cursor: # create a cursor object to execute SQL queries
@@ -14,6 +14,7 @@ def getAllStudents():
                     print(row) # print the row to the console
 
 
+# CREATE FUNCTION: Purpose: Adds a new student to the database.
 def addStudent(first_name: str, last_name: str, email: str, enrollment_date: str): # add a new student to the database
     with psycopg.connect("dbname=Assignment_3_DB user=postgres password=postgres") as db: # connect to the database
         with db.cursor() as cursor: # create a cursor object to execute SQL queries
@@ -30,7 +31,8 @@ def addStudent(first_name: str, last_name: str, email: str, enrollment_date: str
                 cursor.execute(f"INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES ('{first_name}', '{last_name}', '{email}', '{enrollment_date}')")
                 db.commit()  # commits the transaction to the database.
 
-# Purpose: Updates the email of the student with the given student_id in the database.
+
+# UPDATE FUNCTION: Purpose: Updates the email of the student with the given student_id in the database.
 def updateStudentEmail(student_id: int, email: str):
     with psycopg.connect("dbname=Assignment_3_DB user=postgres password=postgres") as db: # connect to the database
         with db.cursor() as cursor: # create a cursor object to execute SQL queries
@@ -42,7 +44,8 @@ def updateStudentEmail(student_id: int, email: str):
             cursor.execute(f"UPDATE students SET email = '{email}' WHERE student_id = {student_id}") # execute the SQL query
             db.commit() # commits the transaction to the database.
 
-# Purpose: Deletes the student with the given student_id from the database.
+
+# DELETE FUNCTION: Purpose: Deletes the student with the given student_id from the database.
 def deleteStudent(student_id: int): # delete a student from the database
     with psycopg.connect("dbname=Assignment_3_DB user=postgres password=postgres") as db: # connect to the database
         with db.cursor() as cursor: # create a cursor object to execute SQL queries
