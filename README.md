@@ -40,4 +40,4 @@ python test_script.py
 https://github.com/AbduAwad/Python_sql_scripting_A3
 
 ### Youtube Video Link:
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/1zvzW3J3l4E/0.jpg)](https://www.youtube.com/watch?v=1zvzW3J3l4E)
+https://youtu.be/u2oQDZ0jLkE
