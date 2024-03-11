@@ -26,6 +26,3 @@ deleteStudent(1) # delete the student with student_id 1
 print("After deleting the student with student_id 1:\n")
 getAllStudents() # get all students from the database
 print("-----------------------------------\n")
-
-
-
