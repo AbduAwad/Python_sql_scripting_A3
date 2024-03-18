@@ -1,3 +1,9 @@
+## Assignment 3 Q1 - Python SQL Scripting
+
+- Name: Abdulrahman Awad
+- Student ID: 101256090
+
+
 ### Install the required packages:
 
 In order to connect to the database you need to install the `psycopg` package. You can install it using the following command:
@@ -40,4 +46,4 @@ python test_script.py
 https://github.com/AbduAwad/Python_sql_scripting_A3
 
 ### Youtube Video Link:
-https://youtu.be/u2oQDZ0jLkE
+https://youtu.be/gsQPT6gmXo8
