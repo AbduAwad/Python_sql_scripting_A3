@@ -26,10 +26,12 @@ def addStudent(first_name: str, last_name: str, email: str, enrollment_date: str
 
             if existing_record: # if the record exists
                 print(f"Student with email '{email}' already exists.") # print a message to the console
+                return
             else: # if the record doesn't exist
                 # Email doesn't exist, perform insert
                 cursor.execute(f"INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES ('{first_name}', '{last_name}', '{email}', '{enrollment_date}')")
                 db.commit()  # commits the transaction to the database.
+                print(f"Student {first_name} {last_name} added to the database.") # print a message to the console
 
 
 # UPDATE FUNCTION: Purpose: Updates the email of the student with the given student_id in the database.
@@ -41,8 +43,10 @@ def updateStudentEmail(student_id: int, email: str):
             existing_record = cursor.fetchone() # fetch the first record from the result set
             if not existing_record: # if the record doesn't exist
                 print(f"Student with student_id {student_id} does not exist.") # print a message to the console
+                return
             cursor.execute(f"UPDATE students SET email = '{email}' WHERE student_id = {student_id}") # execute the SQL query
             db.commit() # commits the transaction to the database.
+            print(f"Email for student with student_id {student_id} updated to {email}.") # print a message to the console
 
 
 # DELETE FUNCTION: Purpose: Deletes the student with the given student_id from the database.
@@ -54,6 +58,8 @@ def deleteStudent(student_id: int): # delete a student from the database
             existing_record = cursor.fetchone() # fetch the first record from the result set
             if not existing_record: # if the record doesn't exist
                 print(f"Student with student_id {student_id} does not exist.") # print a message to the console
+                return # exit the function
             else: # if the record exists
                 cursor.execute(f"DELETE FROM students WHERE student_id = {student_id}") # execute the SQL query
                 db.commit() # commits the transaction to the database.
+                print(f"Student with student_id {student_id} deleted.")

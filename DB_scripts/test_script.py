@@ -1,28 +1,53 @@
 # import the CRUD.py functions and test them
 from crud_functions import getAllStudents, addStudent, updateStudentEmail, deleteStudent
 
-# Test the CRUD.py functions
-print("TEST 1: GET ALL STUDENTS\n")
-print("-----------------------------------\n")
-getAllStudents() # get all students from the database
-print("-----------------------------------\n")
+#import the date and time module
 
-print("TEST 2: ADD A NEW STUDENT\n")
-print("-----------------------------------\n")
-addStudent('Jason', 'SMITH', 'newEmail2@yahoo.com', '2021-10-01') # add a new student to the database
-getAllStudents() # get all students from the database
-print("-----------------------------------\n") 
+import datetime
 
-print("TEST 3: UPDATE STUDENT EMAIL\n")
-print("-----------------------------------\n")
-updateStudentEmail(1, 'updatedEmail@cmail.com') # update the email of the student with student_id 1
-print("After updating the email of the student with student_id 1:\n")
-getAllStudents() # get all students from the database
-print("-----------------------------------\n")
+def displayDB():
+    print("--------------------------------------------------------------")
+    print("Student ID | First Name | Last Name | Email | Enrollment Date")
+    print("--------------------------------------------------------------")
+    getAllStudents()
+    print("--------------------------------------------------------------\n")
 
-print("TEST 4: DELETE STUDENT\n")
-print("-----------------------------------\n")
-deleteStudent(1) # delete the student with student_id 1
-print("After deleting the student with student_id 1:\n")
-getAllStudents() # get all students from the database
-print("-----------------------------------\n")
+
+def menu():
+    print("-------------------------")
+    print("1. Get all students")
+    print("2. Add a new student")
+    print("3. Update student email")
+    print("4. Delete student")
+    print("0. Exit")
+    print("-------------------------")
+    choice = input("Enter your choice: ")
+    return choice
+
+def main():
+    while True:
+        choice = menu()
+        if choice == '1':
+            getAllStudents()
+        elif choice == '2':
+            first_name = input("Enter the first name of the student: ")
+            last_name = input("Enter the last name of the student: ")
+            email = input("Enter the email of the student: ")
+            curr_date = datetime.datetime.now().strftime("%Y-%m-%d")
+            addStudent(first_name, last_name, email, curr_date)
+            displayDB()
+        elif choice == '3':
+            student_id = input("Enter the student id: ")
+            email = input("Enter the new email: ")
+            updateStudentEmail(student_id, email)
+            displayDB()
+        elif choice == '4':
+            student_id = input("Enter the student id: ")
+            deleteStudent(student_id)
+            displayDB()
+        elif choice == '0':
+            break
+        else:
+            print("Invalid choice")
+
+main()
