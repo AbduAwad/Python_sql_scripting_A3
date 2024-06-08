@@ -1,8 +1,6 @@
-## Assignment 3 Q1 - Python SQL Scripting
+Python SQL Scripting
 
 - Name: Abdulrahman Awad
-- Student ID: 101256090
-
 
 ### Install the required packages:
 
